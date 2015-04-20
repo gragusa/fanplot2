@@ -19,10 +19,9 @@ fan <-
     ## Check weights consistency
     if (!missing(weights) && data.type=="simulations") {
       if(length(weights)!=nrow(data)) 
-        error("weights vector of wrong length")
+        stop("weights vector of wrong length")
       if(min(weights)<0)
-        error("negative weights not allowed")
-      weights <- weights/sum(weights)
+        stop("negative weights not allowed")
     }
     
     #probs[round(probs,2) %in% c(0.05,0.10,0.20,0.50,0.80,0.90,0.95)]
